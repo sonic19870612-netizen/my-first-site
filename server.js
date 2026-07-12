@@ -1,12 +1,12 @@
 const path = require('path');
 const fs = require('fs');
 const express = require('express');
-const Database = require('better-sqlite3');
+const { DatabaseSync } = require('node:sqlite');
 
 const dataDir = path.join(__dirname, 'data');
 fs.mkdirSync(dataDir, { recursive: true });
 
-const db = new Database(path.join(dataDir, 'guestbook.db'));
+const db = new DatabaseSync(path.join(dataDir, 'guestbook.db'));
 db.exec(`
   CREATE TABLE IF NOT EXISTS messages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
