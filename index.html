@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonic｜自我介紹</title>
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --bg-soft:#121212;
+    --card:#161616;
+    --orange:#ff7a1a;
+    --orange-soft:#ff9a4d;
+    --orange-dim:#8a4416;
+    --text:#f1efe9;
+    --text-dim:#9a958c;
+    --line:#2a2622;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html,body{
+    height:100%;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    overflow-x:hidden;
+  }
+
+  body{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:48px 20px;
+  }
+
+  /* subtle ambient glow, kept low-key */
+  .glow{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:0.35;
+    pointer-events:none;
+    z-index:0;
+  }
+  .glow-1{
+    width:420px; height:420px;
+    background:var(--orange);
+    top:-120px; left:-120px;
+    animation:drift1 14s ease-in-out infinite;
+  }
+  .glow-2{
+    width:360px; height:360px;
+    background:var(--orange-dim);
+    bottom:-140px; right:-100px;
+    animation:drift2 16s ease-in-out infinite;
+  }
+  @keyframes drift1{
+    0%,100%{ transform:translate(0,0); }
+    50%{ transform:translate(30px,20px); }
+  }
+  @keyframes drift2{
+    0%,100%{ transform:translate(0,0); }
+    50%{ transform:translate(-25px,-15px); }
+  }
+
+  .noise{
+    position:fixed; inset:0;
+    background-image:radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size:3px 3px;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .card{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:520px;
+    background:linear-gradient(180deg, var(--card), var(--bg-soft));
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:56px 44px;
+    box-shadow:
+      0 0 0 1px rgba(255,122,26,0.05),
+      0 30px 60px -20px rgba(0,0,0,0.6),
+      0 0 80px -30px rgba(255,122,26,0.25);
+  }
+
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    letter-spacing:0.18em;
+    color:var(--orange-soft);
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .tag::before{
+    content:"";
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--orange);
+    box-shadow:0 0 10px 2px rgba(255,122,26,0.7);
+  }
+
+  h1{
+    font-size:56px;
+    font-weight:800;
+    line-height:1.05;
+    letter-spacing:-0.02em;
+    background:linear-gradient(135deg, #ffffff 0%, #ffd9b0 45%, var(--orange) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:6px;
+  }
+
+  .role{
+    font-size:16px;
+    color:var(--text-dim);
+    margin-bottom:28px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .role b{
+    color:var(--orange-soft);
+    font-weight:600;
+  }
+  .dot-sep{
+    width:3px; height:3px;
+    border-radius:50%;
+    background:var(--text-dim);
+  }
+
+  .intro{
+    font-size:15px;
+    line-height:1.9;
+    color:#d8d4cb;
+    border-left:2px solid var(--orange-dim);
+    padding-left:16px;
+    margin-bottom:34px;
+  }
+  .intro strong{
+    color:var(--orange-soft);
+    font-weight:600;
+  }
+
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:36px;
+  }
+  .chip{
+    font-size:13px;
+    padding:8px 16px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(255,122,26,0.04);
+    color:var(--text);
+    transition:all .25s ease;
+  }
+  .chip:hover{
+    border-color:var(--orange-dim);
+    background:rgba(255,122,26,0.1);
+    box-shadow:0 0 16px -4px rgba(255,122,26,0.5);
+    transform:translateY(-1px);
+  }
+
+  .quote{
+    font-size:14px;
+    color:var(--text-dim);
+    font-style:italic;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+  }
+  .quote span{
+    color:var(--orange-soft);
+  }
+
+  @media (max-width:480px){
+    .card{ padding:40px 26px; }
+    h1{ font-size:44px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="noise"></div>
+
+  <main class="card">
+    <div class="tag">Nice to meet you</div>
+
+    <h1>Sonic</h1>
+
+    <p class="role">
+      <b>業務</b>
+      <span class="dot-sep"></span>
+      <span>用幽默感談成每一筆生意</span>
+    </p>
+
+    <p class="intro">
+      我是 <strong>Sonic</strong>，一名業務。比起制式的話術，我更相信<strong>幽默</strong>能拉近人與人的距離——
+      認真做事、輕鬆做人，是我一直以來的風格。
+    </p>
+
+    <div class="chips">
+      <div class="chip">💼 業務開發</div>
+      <div class="chip">😄 幽默感十足</div>
+      <div class="chip">🤝 溝通高手</div>
+      <div class="chip">⚡ 行動派</div>
+    </div>
+
+    <p class="quote">“ 談生意可以很嚴肅，但也可以<span>很好玩</span>。”</p>
+  </main>
+
+</body>
+</html>
